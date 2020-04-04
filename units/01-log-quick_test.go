@@ -1,21 +1,18 @@
 package tests
 
 import (
-	"fmt"
 	"testing"
 
 	logging "github.com/codemodify/systemkit-logging"
 )
 
 func Test_01(t *testing.T) {
-	logging.Instance().LogTrace("Trace line")
-	logging.Instance().LogPanic("Panic line")
-	logging.Instance().LogFatal("Fatal line")
-	logging.Instance().LogError("Error line")
-	logging.Instance().LogWarning("Warning line")
-	logging.Instance().LogInfo("Info line")
-	logging.Instance().LogSuccess("Success line")
-	logging.Instance().LogDebug("Debug line")
-
-	fmt.Println()
+	logging.Instance().Trace("Trace line")
+	logging.Instance().Panic("Panic line")
+	logging.Instance().Fatal("Fatal line")
+	logging.Instance().Error("Error line")
+	logging.Instance().Warning("Warning line")
+	logging.Instance().Info("Info line")
+	logging.Instance().Success("Success line")
+	logging.Instance().Debug("Debug line")
 }
