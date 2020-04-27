@@ -9,17 +9,17 @@ import (
 	loggingMixAsync "github.com/codemodify/systemkit-logging-mixers-async"
 	loggingMixBuffered "github.com/codemodify/systemkit-logging-mixers-buffered"
 	loggingMixMulti "github.com/codemodify/systemkit-logging-mixers-multi"
-	loggingPersistConsole "github.com/codemodify/systemkit-logging-persisters-console"
+	loggingPersistConsole "github.com/codemodify/systemkit-logging-persisters-consolewithcolors"
 	loggingPersistFile "github.com/codemodify/systemkit-logging-persisters-file"
 )
 
-func Test_04(t *testing.T) {
+func Test_05(t *testing.T) {
 	logging.SetLogger(
-		logging.NewPipe([]logging.Logger{
+		logging.NewPipe([]logging.CoreLogger{
 			loggingFormat.NewTimeRFC3339NanoFormatter(),
 			loggingMixAsync.NewAsyncLogger(
 				loggingMixBuffered.NewBufferedLogger(
-					loggingMixMulti.NewMultiLogger([]logging.Logger{
+					loggingMixMulti.NewMultiLogger([]logging.CoreLogger{
 						loggingPersistConsole.NewConsoleLoggerDefaultColors(),
 						loggingPersistFile.NewFileLoggerDefaultName(),
 					}),
@@ -31,16 +31,16 @@ func Test_04(t *testing.T) {
 		}),
 	)
 
-	logging.Instance().KeepOnlyLogs(logging.TypeDebug)
+	logging.KeepOnlyLogs(logging.TypeDebug)
 
-	logging.Instance().Trace("Trace line")
-	logging.Instance().Panic("Panic line")
-	logging.Instance().Fatal("Fatal line")
-	logging.Instance().Error("Error line")
-	logging.Instance().Warning("Warning line")
-	logging.Instance().Info("Info line")
-	logging.Instance().Success("Success line")
-	logging.Instance().Debug("Debug line")
+	logging.Trace("Trace line")
+	logging.Panic("Panic line")
+	logging.Fatal("Fatal line")
+	logging.Error("Error line")
+	logging.Warning("Warning line")
+	logging.Info("Info line")
+	logging.Success("Success line")
+	logging.Debug("Debug line")
 
 	time.Sleep(5 * time.Second)
 }

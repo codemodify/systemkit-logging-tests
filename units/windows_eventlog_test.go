@@ -14,14 +14,14 @@ func Test_windows_eventlog(t *testing.T) {
 		loggingPersistWinEvent.NewWindowsEventLogger(),
 	)
 
-	logging.Instance().KeepOnlyLogs(logging.TypeDebug)
+	logging.KeepOnlyLogs(logging.TypeDebug)
 
-	logging.Instance().Trace("Trace line")
-	logging.Instance().Panic("Panic line")
-	logging.Instance().Fatal("Fatal line")
-	logging.Instance().Error("Error line")
-	logging.Instance().Warning("Warning line")
-	logging.Instance().Info("Info line")
-	logging.Instance().Success("Success line")
-	logging.Instance().Debug("Debug line")
+	logging.Trace("Trace line")
+	logging.Panic("Panic line")
+	logging.Fatal("Fatal line")
+	logging.Error("Error line")
+	logging.Warning("Warning line")
+	logging.Info("Info line")
+	logging.Success("Success line")
+	logging.Debug("Debug line")
 }

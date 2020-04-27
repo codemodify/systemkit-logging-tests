@@ -19,7 +19,7 @@ import (
 //		When you call `Flush()` it will save to the persisters
 //		a nice-call-stack-alike log lines
 
-func Test_05(t *testing.T) {
+func Test_06(t *testing.T) {
 	var flushable = loggingAdvanced.NewGroupAndSort(
 		loggingAdvanced.NewSimpleFormatter(),
 	)
